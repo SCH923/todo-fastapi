@@ -8,7 +8,7 @@ app = FastAPI()
 class Task(BaseModel):
     id: int
     text: str
-    done: bool
+    state: bool
     
 @app.get("/")
 def read():

@@ -18,7 +18,7 @@ app.add_middleware(
 class Task(BaseModel):
     id: int
     text: str
-    state: bool
+    state: str
     
 @app.get("/")
 def read():
@@ -50,7 +50,7 @@ def create(task: Task):
     return json_load
 
 
-@app.put("/")
+@app.put("/{new_task_id}")
 def update(new_task_id:int, new_task:Task):
 
     json_load = []

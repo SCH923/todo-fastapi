@@ -3,7 +3,17 @@ from pydantic import BaseModel
 import json
 import os
 
+from starlette.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 class Task(BaseModel):
     id: int
